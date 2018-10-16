@@ -1,0 +1,32 @@
+/* charts */
+.pf-c-chart__bar {
+  fill: #004368 !important;
+}
+
+/* gradient bar chart */
+.pf-c-chart__bar-gradient {
+  fill: #004368 !important;
+}
+.pf-c-chart__bar-gradient:nth-child(2) {
+  fill: #00659c !important;
+}
+.pf-c-chart__bar-gradient:nth-child(3) {
+  fill: #007bba !important;
+}
+.pf-c-chart__bar-gradient:nth-child(4) {
+  fill: #39a5dc !important;
+}
+
+/* multicolor bar chart */
+.pf-c-chart__bar-multi {
+  fill: #004368 !important;
+}
+.pf-c-chart__bar-multi:nth-child(2) {
+  fill: #a18fff !important;
+}
+.pf-c-chart__bar-multi:nth-child(3) {
+  fill: #6fc665 !important;
+}
+.pf-c-chart__bar-multi:nth-child(4) {
+  fill: #f9d67a !important;
+}
