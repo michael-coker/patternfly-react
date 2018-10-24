@@ -9,6 +9,8 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryStack,
+  VictoryLine,
+  VictoryLegend,
   Bar,
   VictoryGroup,
   theme,
@@ -207,9 +209,9 @@ const fooTheme = {
         strokeLinecap,
         strokeLinejoin
       },
-      axisLabel: assign({}, centeredLabelStyles, {
-        padding: 25
-      }),
+      axisLabel: {
+        fill: "transparent"
+      },
       grid: {
         fill: "none",
         stroke: global_Color_light_200_var,
@@ -290,30 +292,17 @@ const fooTheme = {
       title: assign({}, baseLabelStyles, { padding: 5 })
     }
   },
+  */
   line: assign({
     style: {
       data: {
-        fill: "transparent",
-        stroke: charcoal,
-        strokeWidth: 2
+        stroke: global_active_color_100_var,
+        strokeWidth: 1
       },
       labels: centeredLabelStyles
     }
-  }, baseProps),
-  pie: {
-    style: {
-      data: {
-        padding: 10,
-        stroke: "transparent",
-        strokeWidth: 1
-      },
-      labels: assign({}, baseLabelStyles, { padding: 20 })
-    },
-    colorScale: colors,
-    width: 400,
-    height: 400,
-    padding: 50
-  },
+  }, baseProps)
+  /*
   scatter: assign({
     style: {
       data: {
@@ -357,9 +346,66 @@ const fooTheme = {
   */
 };
 
+const pieTheme = {
+  axis: assign({
+    style: {
+      axis: {
+        fill: "none",
+        stroke: "transparent"
+      },
+      grid: {
+        fill: "none",
+        stroke: "transparent",
+        pointerEvents: "painted"
+      },
+      ticks: {
+        fill: "none",
+        size: 8,
+        stroke: "transparent"
+      },
+      tickLabels: baseLabelStyles
+    }
+  }, baseProps),
+  pie: {
+    style: {
+      data: {
+        padding: 10,
+        stroke: "transparent",
+        strokeWidth: 1
+      },
+      labels: assign({}, baseLabelStyles, { padding: 20 })
+    },
+    colorScale: colors,
+    width: 400,
+    height: 400,
+    padding: 50
+  }
+};
+
 const Chart = ({ className, children, ...props }) => (
-  <VictoryChart theme={fooTheme} domainPadding={30}>
-    {/*
+  
+  <VictoryChart theme={pieTheme} domain={[0, 10]}>
+  <VictoryLegend x={125} y={50}
+    orientation="horizontal"
+    gutter={20}
+    style={{ border: { stroke: "black" }, title: {fontSize: 20 } }}
+    data={[
+      { name: "One", symbol: { fill: "tomato", type: "star" } },
+      { name: "Two", symbol: { fill: "orange" } },
+      { name: "Three", symbol: { fill: "gold" } }
+    ]}
+  />
+    <VictoryPie
+      data={[
+        { y: 35 },
+        { y: 35 },
+        { y: 35 }
+      ]}
+    />
+  </VictoryChart>
+);
+/* 
+    <VictoryChart theme={fooTheme} domainPadding={30}>
     <VictoryBar
       data={sampleData}
       dataComponent={<Bar className="pf-c-chart__bar"/>}
@@ -368,7 +414,6 @@ const Chart = ({ className, children, ...props }) => (
       data={sampleData}
       dataComponent={<Bar className="pf-c-chart__bar-gradient"/>}
     />
-    */}
     <VictoryBar
       data={[
         { x: 1, y: 2 },
@@ -378,8 +423,7 @@ const Chart = ({ className, children, ...props }) => (
         { x: 5, y: 6 }
       ]}
     />
-      {/*
-    <VictoryGroup offset={17}
+    <VictoryGroup offset={14}
     >
       <VictoryBar
         data={[{ x: 2016, y: 1 }, { x: 2017, y: 2 }, { x: 2018, y: 5 }]}
@@ -394,9 +438,17 @@ const Chart = ({ className, children, ...props }) => (
         data={[{ x: 2016, y: 3 }, { x: 2017, y: 4 }, { x: 2018, y: 10 }]}
       />
     </VictoryGroup>
-    */}
+    <VictoryLine
+      data={[
+        { x: 1, y: 2 },
+        { x: 2, y: 3 },
+        { x: 3, y: 5 },
+        { x: 4, y: 4 },
+        { x: 5, y: 7 }
+      ]}
+    />
   </VictoryChart>
-);
+*/
 
 Chart.propTypes = propTypes;
 Chart.defaultProps = defaultProps;
