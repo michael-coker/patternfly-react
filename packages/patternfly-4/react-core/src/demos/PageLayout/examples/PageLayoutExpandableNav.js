@@ -37,6 +37,7 @@ import { css } from '@patternfly/react-styles';
 import { BellIcon, CogIcon } from '@patternfly/react-icons';
 import brandImg from './l_pf-reverse-164x11.png';
 import avatarImg from './img_avatar.svg';
+import './pf3-theme.css';
 
 class PageLayoutExpandableNav extends React.Component {
   constructor(props) {
