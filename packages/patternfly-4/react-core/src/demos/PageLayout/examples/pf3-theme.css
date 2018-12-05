@@ -2,10 +2,12 @@
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   background-color: #292e34 !important;
+  overflow-y: auto !imporant;
 }
 
 .pf-c-nav__list > .pf-c-nav__item {
   border-bottom: 1px solid #030303 !important;
+  font-size: 1.25em;
 }
 
 .pf-c-nav__list > .pf-c-nav__item:not(:first-child) {
@@ -30,8 +32,13 @@
   padding-top: 17px !important;
   padding-bottom: 17px !important;
   padding-left: 40px !important;
-  font-size: 14px !important;
   align-items: center !important;
+}
+
+.pf-c-nav__simple-list .pf-c-nav__link:active,
+.pf-c-nav__simple-list .pf-c-nav__link:focus {
+  color: #d1d1d1 !important;
+  background-color: transparent !important;
 }
 
 .pf-c-nav__simple-list .pf-c-nav__link:hover,
@@ -63,18 +70,13 @@
   padding-right: 5px !important;;
   padding-bottom: 2px !important;;
   line-height: 25px !important;
+  font-size: 14px !important;
 }
 
 .pf-c-nav__simple-list .pf-c-nav__link::after {
   left: 0 !important;
   width: 3px !important;
   height: 100% !important;
-}
-
-.pf-c-nav__simple-list .pf-c-nav__link:active,
-.pf-c-nav__simple-list .pf-c-nav__link:focus {
-  color: #d1d1d1 !important;
-  background-color: transparent !important;
 }
 
 .pf-c-nav__simple-list .pf-c-nav__link.pf-m-current::after {
@@ -94,7 +96,8 @@
   font-size: 24px;
 }
 
-.pf-c-nav__link:hover .pf-c-nav__toggle {
+.pf-c-nav__link:hover .pf-c-nav__toggle,
+.pf-c-nav__item.pf-m-expanded .pf-c-nav__toggle {
   display: block !important;
 }
 
